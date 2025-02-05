@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Drawflow Projx</title>
+  </head>
+  <body>
+    <!-- Include external CSS libraries -->
+    <link rel="stylesheet" href="./lib/drawflow.min.css" />
+    <link rel="stylesheet" type="text/css" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Include external JavaScript libraries -->
+    <script src="./lib/drawflow.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+    <!-- Header section -->
+    <header>
+      <h2>Drawflow Project X</h2>
+    </header>
+
+    <!-- Main section -->
+    <div class="wrapper">
+      <!-- Sidebar section -->
+      <div class="col">
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="github"
+        >
+          <i class="fab fa-github"></i><span> Star Github</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="telegram"
+        >
+          <i class="fab fa-telegram"></i><span> Send Telegram</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="aws"
+        >
+          <i class="fab fa-aws"></i><span> AWS</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="email"
+        >
+          <i class="fas fa-at"></i><span> Send Email</span>
+        </div>
+        <div
+          class="drag-drawflow"
+          draggable="true"
+          ondragstart="drag(event)"
+          data-node="template"
+        >
+          <i class="fas fa-code"></i><span>Node Template</span>
+        </div>
+      </div>
+
+      <!-- Canvas section -->
+      <div class="col-right">
+        <div id="drawflow" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <div class="btn-float btn-export" id="exportButton">Export</div>
+          <div
+            class="btn-float btn-clear"
+            onclick="editor.clearModuleSelected()"
+          >
+            Clear
+          </div>
+          <div class="btn-lock">
+            <i
+              id="lock"
+              class="fas fa-lock"
+              onclick="editor.editor_mode='fixed'; changeMode('lock');"
+            ></i>
+            <i
+              id="unlock"
+              class="fas fa-lock-open"
+              onclick="editor.editor_mode='edit'; changeMode('unlock');"
+              style="display: none"
+            ></i>
+          </div>
+
+          <!-- Zoom bar  -->
+          <div class="bar-zoom">
+            <i class="fas fa-search-minus" onclick="editor.zoom_out()"></i>
+            <i class="fas fa-search" onclick="editor.zoom_reset()"></i>
+            <i class="fas fa-search-plus" onclick="editor.zoom_in()"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Made with <i class="fa fa-heart"></i> by
+        <a href="" target="_blank">BinaryCrux</a>
+      </p>
+    </footer>
+    <!-- custom JavaScript file -->
+    <script src="./src/main.js"></script>
+  </body>
+</html>
